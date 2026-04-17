@@ -13,6 +13,13 @@ type Server struct {
 	jwtSecret string
 }
 
+func listenPort() string {
+	if port := os.Getenv("PORT"); port != "" {
+		return port
+	}
+	return "8080"
+}
+
 func main() {
 	jwtSecret := os.Getenv("JWT_SECRET")
 	if jwtSecret == "" {
@@ -50,16 +57,17 @@ func main() {
 	mux.HandleFunc("GET /api/apps/{appStoreId}/reviews", authMiddleware(jwtSecret, srv.handleGetReviews))
 
 	handler := corsMiddleware(mux)
+	port := listenPort()
 
 	server := &http.Server{
-		Addr:         ":8080",
+		Addr:         ":" + port,
 		Handler:      handler,
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
 		IdleTimeout:  60 * time.Second,
 	}
 
-	log.Println("Server listening on http://localhost:8080")
+	log.Printf("Server listening on http://localhost:%s", port)
 	if err := server.ListenAndServe(); err != nil {
 		log.Fatalf("server error: %v", err)
 	}
