@@ -18,8 +18,8 @@ const scoreStyle = (score: number): React.CSSProperties => {
 const features = [
   {
     icon: <RefreshCw size={sizes.icon.feature} style={{ color: colors.primaryText }} />,
-    title: 'Automatic Polling',
-    description: 'Fetches new reviews every 15 minutes. Never miss a customer insight.',
+    title: 'Refresh on Demand',
+    description: 'Refresh reviews whenever you want and check the latest App Store feedback on your schedule.',
   },
   {
     icon: <Clock size={sizes.icon.feature} style={{ color: colors.primaryText }} />,
@@ -39,11 +39,11 @@ const features = [
   {
     icon: <Bell size={sizes.icon.feature} style={{ color: colors.primaryText }} />,
     title: 'Persistent Storage',
-    description: 'Data is saved locally. Stop and restart the service without losing any reviews.',
+    description: 'Your apps and reviews stay saved between sessions, ready when you come back.',
   },
   {
     icon: <Activity size={sizes.icon.feature} style={{ color: colors.primaryText }} />,
-    title: 'Real-Time Insights',
+    title: 'Review Details',
     description: 'Author, score, version, and timestamp for every review in one place.',
   },
 ]
@@ -51,7 +51,7 @@ const features = [
 const steps = [
   { num: '01', title: 'Create an account', desc: 'Sign up with your email in seconds.' },
   { num: '02', title: 'Add an iOS app', desc: 'Paste any App Store ID to start monitoring.' },
-  { num: '03', title: 'See the reviews', desc: 'We poll the feed and show you the last 48 hours.' },
+  { num: '03', title: 'Refresh anytime', desc: 'Open the dashboard and fetch the latest reviews when you need them.' },
 ]
 
 export function Landing() {
@@ -64,7 +64,7 @@ export function Landing() {
           style={{ backgroundColor: colors.primaryBg, borderColor: colors.primaryBorder, color: colors.primaryText, fontSize: fontSizes.xs }}
         >
           <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: colors.primaryText }} />
-          Live review monitoring
+          On-demand review monitoring
         </div>
 
         <h1 className="font-bold mb-6" style={{ color: colors.text, fontSize: fontSizes['5xl'] }}>
@@ -77,13 +77,13 @@ export function Landing() {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            in Real Time
+            on Your Schedule
           </span>
         </h1>
 
         <p className="max-w-2xl mx-auto mb-10" style={{ color: colors.textMuted, fontSize: fontSizes.lg }}>
-          Track what customers are saying about your iOS apps. ReviewRadar polls the App Store RSS
-          feed every 15 minutes and surfaces the reviews that matter most.
+          Track what customers are saying about your iOS apps. Refresh App Store reviews whenever
+          you need the latest customer feedback.
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
