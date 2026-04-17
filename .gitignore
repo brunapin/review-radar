@@ -1,0 +1,14 @@
+# Backend
+backend/data/
+backend/*.exe
+backend/backend
+backend/.gocache/
+backend/.gotmp/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Env
+.env
+.env.local
